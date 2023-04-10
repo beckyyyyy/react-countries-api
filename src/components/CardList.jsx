@@ -44,7 +44,7 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
       }
     }
     getAllCountriesAsync()
-  }, [inputValue, selectedRegion, searchCountries])
+  })
 
   return (
     <div className={styles.cardsContainer}>
