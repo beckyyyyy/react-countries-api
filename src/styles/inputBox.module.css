@@ -1,0 +1,42 @@
+.inputBox {
+  height: 50px;
+  width: 350px;
+  position: relative;
+}
+
+.inputBox > svg {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  width: 14px;
+  fill: var(--input-color);
+}
+
+.inputStyle {
+  height: 100%;
+  width: 100%;
+  padding: 0 56px;
+  font-size: 14px;
+  font-weight: 300;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--element-color);
+  color: var(--text-color);
+  box-shadow: 0 0 5px 0 var(--box-shadow);
+}
+
+.inputStyle:focus {
+  outline: none;
+}
+
+.inputStyle::placeholder {
+  color: var(--input-color);
+}
+
+@media screen and (max-width: 415px) {
+  .inputBox {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

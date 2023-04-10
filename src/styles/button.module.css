@@ -1,0 +1,19 @@
+.btnStyle {
+  display: flex;
+  align-items: center;
+  padding: 8px 30px;
+  background-color: var(--element-color);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 8px 0 var(--box-shadow);
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnStyle svg {
+  margin-right: 10px;
+  height: 14px;
+  fill: var(--text-color);
+}

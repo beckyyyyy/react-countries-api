@@ -1,0 +1,12 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  justify-content: space-between;
+  grid-row-gap: 60px;
+}
+
+@media screen and (max-width: 415px) {
+  .cardsContainer {
+    justify-content: center;
+  }
+}

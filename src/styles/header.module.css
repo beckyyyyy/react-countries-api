@@ -1,0 +1,42 @@
+header {
+  height: 80px;
+  background-color: var(--element-color);
+  box-shadow: 0 0 5px var(--box-shadow);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+  width: 85%;
+  max-width: 1440px;
+}
+
+.navTitle {
+  color: var(--text-color);
+}
+
+.modeControl {
+  display: flex;
+  align-items: center;
+}
+
+.modeIcon {
+  height: 16px;
+  cursor: pointer;
+  content: var(--mode-control-image);
+}
+
+.modeControl p {
+  margin-left: 10px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 415px) {
+  .navTitle {
+    font-size: 18px;
+  }
+}

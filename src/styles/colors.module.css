@@ -1,0 +1,25 @@
+@value blue: hsl(209, 23%, 22%);
+@value dark-blue: hsl(207, 26%, 17%);
+@value very-dark-blue: hsl(200, 15%, 8%);
+@value dark-gray: hsl(0, 0%, 52%);
+@value light-gray: hsl(0, 0%, 98%);
+
+:root {
+  --background: light-gray;
+  --text-color: very-dark-blue;
+  --sub-text-color: dark-blue;
+  --element-color: white;
+  --input-color: dark-gray;
+  --box-shadow: hsl(0, 0%, 89%);
+  --mode-control-image: url("icons/night-mode.png");
+}
+
+[data-theme="dark"] {
+  --background: dark-blue;
+  --text-color: white;
+  --sub-text-color: light-gray;
+  --element-color: blue;
+  --input-color: white;
+  --box-shadow: dark-blue;
+  --mode-control-image: url("icons/night-mode-filled.png");
+}

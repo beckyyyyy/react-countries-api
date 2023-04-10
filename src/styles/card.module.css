@@ -1,0 +1,36 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 350px;
+  background: var(--element-color);
+  border-radius: 6px;
+  box-shadow: 0 0 8px 0 var(--box-shadow);
+  cursor: pointer;
+}
+
+.imageBox {
+  flex-basis: 50%;
+  overflow: hidden;
+}
+.imageBox img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 100%;
+  height: 100%;
+}
+
+.textBox {
+  padding: 20px;
+}
+
+.textBox h4 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.textBox > p {
+  font-size: 14px;
+  color: var(--text-color);
+  line-height: 1.5em;
+}

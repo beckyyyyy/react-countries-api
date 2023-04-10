@@ -1,0 +1,21 @@
+.selectBox {
+  height: 50px;
+  width: 200px;
+}
+
+.selectBox select {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--element-color);
+  box-shadow: 0 0 5px 0 var(--box-shadow);
+  color: var(--text-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.selectBox select:focus {
+  outline: none;
+}
