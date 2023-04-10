@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
   const [displayCountries, setDisplayCountries] = useState([])
   const searchValue = inputValue.toUpperCase()
-  const COUNTRIES_PER_PAGE = 24
 
   // 依字母排序
   const sortOrder = (orders) => {
@@ -45,7 +44,7 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
       }
     }
     getAllCountriesAsync()
-  }, [inputValue, selectedRegion])
+  }, [inputValue, selectedRegion, searchCountries])
 
   return (
     <div className={styles.cardsContainer}>

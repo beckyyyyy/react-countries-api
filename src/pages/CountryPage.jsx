@@ -51,7 +51,7 @@ export default function CountryPage() {
       }
     }
     getACountryAsync()
-  }, [countryName])
+  }, [countryName, findCountryName])
 
   if (!getCountry) {
     return
