@@ -5,6 +5,11 @@ const defaultCountryContext = {
   modeTheme: "",
   onModeChange: null,
   findCountryName: null,
+  currentPage: null,
+  setCurrentPage: null,
+  isLastPage: null,
+  setIsLastPage: null,
+  onMoreClick: null,
 }
 
 const CountryContext = createContext(defaultCountryContext)
@@ -14,6 +19,8 @@ export const CountryProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const mode = isDarkMode ? "dark" : ""
   const [countriesCodeTable, setCountriesCodeTable] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [isLastPage, setIsLastPage] = useState(false)
 
   // 抓取所有國家名稱及簡稱，為了提供Border Countries 使用。
   useEffect(() => {
@@ -40,6 +47,13 @@ export const CountryProvider = ({ children }) => {
             (country) => country.cca3 === code
           )
           return fullName
+        },
+        currentPage: currentPage,
+        setCurrentPage: setCurrentPage,
+        isLastPage: isLastPage,
+        setIsLastPage: setIsLastPage,
+        onMoreClick: () => {
+          setCurrentPage((prev) => prev + 1)
         },
       }}
     >

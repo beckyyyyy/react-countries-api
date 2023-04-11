@@ -3,6 +3,7 @@ import { Main } from "components/Main"
 import { InputBox } from "components/InputBox"
 import { SelectBox } from "components/SelectBox"
 import { CardList } from "components/CardList"
+import { Footer } from "components/Footer"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import styles from "styles/countriesPage.module.css"
@@ -39,6 +40,7 @@ export default function CountriesPage() {
           onCardClick={handleCardClick}
         />
       </Main>
+      <Footer />
     </>
   )
 }

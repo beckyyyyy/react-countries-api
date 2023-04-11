@@ -1,10 +1,15 @@
 import { Card } from "components/Card"
 import { getAllCountries, getRegionCountries } from "api/countryAPI"
 import styles from "styles/cardList.module.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { useCountry } from "context/CountryContext"
 
 export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
-  const [displayCountries, setDisplayCountries] = useState([])
+  const displayCountriesRef = useRef([])
+  const { currentPage, setCurrentPage, setIsLastPage } = useCountry()
+  const [resetPage, setResetPage] = useState(false)
+  const COUNTRIES_PER_PAGE = 24
+  const [countriesByPage, setCountriesByPage] = useState([])
   const searchValue = inputValue.toUpperCase()
 
   // 依字母排序
@@ -14,41 +19,70 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
     })
     return orders
   }
-  // 搜尋國家
+
+  // 搜尋功能
   const searchCountries = (countries) => {
     if (searchValue.trim().length === 0) {
-      setDisplayCountries(countries.map((country) => ({ ...country })))
+      displayCountriesRef.current = countries.map((country) => ({ ...country }))
     } else {
       const countriesFilter = countries.filter((country) => {
         return country.name.common.toUpperCase().includes(searchValue)
       })
-      setDisplayCountries(countriesFilter.map((country) => ({ ...country })))
+      displayCountriesRef.current = countriesFilter.map((country) => ({
+        ...country,
+      }))
     }
+  }
+
+  // 製作分頁
+  const displayCountriesByPage = () => {
+    const countriesSlice = displayCountriesRef.current.slice(
+      0,
+      COUNTRIES_PER_PAGE * currentPage
+    )
+    setCountriesByPage(countriesSlice.map((country) => ({ ...country })))
   }
 
   useEffect(() => {
     const getAllCountriesAsync = async () => {
       try {
-        // 取得所有國家or取得某region國家
-        if (!selectedRegion) {
-          let allCountries = await getAllCountries()
-          allCountries = sortOrder(allCountries)
-          searchCountries(allCountries)
-        } else {
-          let regionCountries = await getRegionCountries(selectedRegion)
-          regionCountries = sortOrder(regionCountries)
-          searchCountries(regionCountries)
+        if (resetPage) {
+          setCurrentPage(1)
+          setResetPage(false)
         }
+        // 取得所有國家or取得某region國家
+        let getCountries
+        if (!selectedRegion) {
+          const allCountries = await getAllCountries()
+          getCountries = sortOrder(allCountries)
+        } else {
+          const regionCountries = await getRegionCountries(selectedRegion)
+          getCountries = sortOrder(regionCountries)
+        }
+        searchCountries(getCountries)
+        // 判斷是否已顯示所有資料
+        if (
+          Math.ceil(displayCountriesRef.current.length / COUNTRIES_PER_PAGE) ===
+          currentPage
+        ) {
+          setIsLastPage(true)
+        }
+        displayCountriesByPage()
       } catch (error) {
         console.error(error)
       }
     }
     getAllCountriesAsync()
-  })
+  }, [selectedRegion, searchValue, currentPage, resetPage])
+
+  useEffect(() => {
+    setResetPage(true)
+    setIsLastPage(false)
+  }, [inputValue, selectedRegion])
 
   return (
     <div className={styles.cardsContainer}>
-      {displayCountries.map((c) => {
+      {countriesByPage.map((c) => {
         return (
           <Card
             key={c.name.common}

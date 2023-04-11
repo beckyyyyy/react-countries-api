@@ -1,0 +1,21 @@
+footer {
+  height: 80px;
+  width: 100%;
+}
+
+.moreContainer {
+  height: 100%;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  color: var(--text-color);
+  fill: var(--text-color);
+}
+
+.moreContainer:hover {
+  color: lightslategray;
+  fill: lightslategray;
+}
