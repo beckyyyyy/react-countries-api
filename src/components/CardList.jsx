@@ -73,21 +73,12 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
       }
     }
     getAllCountriesAsync()
-  }, [
-    selectedRegion,
-    searchValue,
-    currentPage,
-    resetPage,
-    searchCountries,
-    displayCountriesByPage,
-    setCurrentPage,
-    setIsLastPage,
-  ])
+  })
 
   useEffect(() => {
     setResetPage(true)
     setIsLastPage(false)
-  }, [inputValue, selectedRegion, setIsLastPage])
+  }, [searchValue, selectedRegion, setIsLastPage])
 
   return (
     <div className={styles.cardsContainer}>
