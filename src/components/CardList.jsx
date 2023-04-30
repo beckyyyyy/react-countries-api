@@ -73,7 +73,7 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
       }
     }
     getAllCountriesAsync()
-  })
+  }, [currentPage, resetPage])
 
   useEffect(() => {
     setResetPage(true)
