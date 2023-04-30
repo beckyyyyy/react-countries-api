@@ -73,6 +73,7 @@ export const CardList = ({ inputValue, selectedRegion, onCardClick }) => {
       }
     }
     getAllCountriesAsync()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, resetPage])
 
   useEffect(() => {
