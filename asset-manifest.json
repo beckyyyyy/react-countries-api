@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-countries-api/static/css/main.74d43da6.css",
-    "main.js": "/react-countries-api/static/js/main.58eb12db.js",
+    "main.js": "/react-countries-api/static/js/main.fd1ad0b3.js",
     "static/js/787.862c3719.chunk.js": "/react-countries-api/static/js/787.862c3719.chunk.js",
     "static/media/night-mode.png": "/react-countries-api/static/media/night-mode.17747ead0809cfa6c396.png",
     "static/media/more.svg": "/react-countries-api/static/media/more.4141f2fc8c1aefd1ee2c56fe735ac3c3.svg",
@@ -9,11 +9,11 @@
     "static/media/search.svg": "/react-countries-api/static/media/search.819dbf4f84c4cdd2721389d558571a86.svg",
     "static/media/arrow-left.svg": "/react-countries-api/static/media/arrow-left.261fc5b9e874e6b41662b6f4cb9bbc60.svg",
     "main.74d43da6.css.map": "/react-countries-api/static/css/main.74d43da6.css.map",
-    "main.58eb12db.js.map": "/react-countries-api/static/js/main.58eb12db.js.map",
+    "main.fd1ad0b3.js.map": "/react-countries-api/static/js/main.fd1ad0b3.js.map",
     "787.862c3719.chunk.js.map": "/react-countries-api/static/js/787.862c3719.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.74d43da6.css",
-    "static/js/main.58eb12db.js"
+    "static/js/main.fd1ad0b3.js"
   ]
 }
